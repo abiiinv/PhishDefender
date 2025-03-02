@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Phishing Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .email-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        .email-header {
+            margin-bottom: 10px;
+        }
+        .email-body {
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #restartButton {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="restartButton" class="button" onclick="restartGame()">Restart</button>
+    <h1>Email Phishing Simulation</h1>
+<p><b>Email Phishing</b> :
+Email phishing is a cyber attack where hackers send fake emails pretending to be from trusted organizations (e.g., banks, PayPal) to trick users into revealing sensitive information like passwords, credit card details, or personal data.</p>
+
+<p>Key Characteristics:
+⁕ Urgency & Fear – Threats like "Your account will be suspended!"
+⁕ Fake Links – URLs that look real but redirect to malicious sites.
+⁕ Poor Grammar & Spelling – Some phishing emails have mistakes.</p>
+      <button id="startGame" class="button" onclick="startGame()">Start Game</button>
+
+    <div class="email-container" style="display: none;">
+        <div class="email-header">
+            <strong>From:</strong> admin@paypal-security.com
+        </div>
+        <div class="email-header">
+            <strong>Subject:</strong> Urgent: Verify Your PayPal Account Now!
+        </div>
+        <div class="email-body">
+            <p>Dear User,</p>
+            <p>We have noticed some unusual activity on your PayPal account. To ensure your account's security, we require you to verify your account information immediately.</p>
+            <p>Failure to verify your account within 24 hours may result in account suspension.</p>
+            <button class="button" onclick="handleChoice(true)">Verify My Account</button>
+            <button class="button" onclick="handleChoice(false)">Ignore Email</button>
+            <p>Thank you for your prompt attention to this matter.</p>
+            <p>Sincerely,<br>
+            PayPal Support</p>
+        </div>
+    </div>
+
+    <button class="button" onclick="location.href='index.html'">Back to Main Menu</button>
+
+    <script>
+      function startGame(){
+        document.getElementsByClassName('email-container')[0].style.display = 'block';
+        document.getElementById('startGame').style.display = 'none';
+
+      }
+        function handleChoice(clickedLink) {
+            if (clickedLink) {
+                alert('You fell for the phishing attempt! This was a simulated attack.');
+            } else {
+                alert('Correct! You identified the email as suspicious and avoided the phishing attempt.');
+            }
+            document.getElementById('restartButton').style.display = 'block';
+        }
+      function restartGame() {
+          document.getElementById('restartButton').style.display = 'none';
+        // Reload the page to simulate restarting the game
+          location.reload();
+
+      }
+
+
+    </script>
+</body>
+</html>

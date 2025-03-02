@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishDefender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #004d8f;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            padding-left: 40px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 30px; /* Adjust this value to move it further down */
+            left: 45px; /* Align with the left padding of the page */
+        }
+        .content {
+            text-align: left;
+            max-width: 50%;
+        }
+        .description {
+            font-size: 18px;
+            margin-bottom: 20px;
+            margin-top: -260px;
+            text-align: justify;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(2, auto); /* Adjusts column width */
+            gap: 20px; /* Reduce this to bring columns closer */
+            justify-content: flex-start; /* Centers the grid */
+            margin-top: 50px;
+            
+        }
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            width: 180px;
+        }
+        button:hover {
+            background-color: #ff4f28;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px; /* Adjust this value to move it further down */
+            left: 40px; /* Align with the left padding of the page */
+        }
+        
+        /* Hook image styling */
+        .hook-image {
+             position: absolute;
+            top: 50%;
+            right: 100px;
+            transform: translateY(-50%);
+            width: 500px; /* Adjust as needed */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content {
+                max-width: 80%;
+            }
+            .hook-image {
+                width: 150px; /* Adjust for smaller screens */
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px){
+            .content{
+                 max-width: 90;
+        }
+
+            .hook-image{
+                width: 100px;
+                right: 30px;
+        }
+}
+
+    </style>
+    <script>
+    function reloadPage() {
+        location.href = location.href;
+    }
+    </script>
+    </head>
+    <body>
+    <div class="content-wrapper">
+    <div class="logo" onclick="reloadPage()">
+        <img src="images/2.png" alt="PhishDefender Logo" width="32">PhishDefender
+    </div>
+    <div class="content">
+        <p class="description">
+            <strong>PhishDefender</strong> is an engaging cybersecurity awareness game designed to educate users about different types of phishing attacks in a realistic and interactive way. The game simulates various phishing scenarios starting with Email Phishing where users must analyze emails and make the right decisions to avoid getting scammed.
+        </p>
+        <div class="buttons">
+            <button onclick="location.href='emailphish.html'">Email Phishing</button>
+            <button onclick="location.href='spearphish.html'">Spear Phishing</button>
+            <button onclick="location.href='smishing.html'">Smishing</button>
+            <button onclick="location.href='vishing.html'">Vishing</button>
+        </div>
+    </div>
+  </div>
+  <!-- Hook Image -->
+  <img src="images/hook.png" alt="Hook Image" class="hook-image">
+
+    <div class="footer">
+      <a href="https://github.com/abiiinv">
+        <img src="images/1.png" alt="GitHub" width="32">
+      </a>
+    </div>
+</body>
+</html>
