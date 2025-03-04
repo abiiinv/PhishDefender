@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Warning</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text */
+        }
+        .warning-message {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #f5c6cb; /* Lighter red border */
+            border-radius: 5px;
+        }
+        .warning-message strong {
+          color: red;
+        }
+    </style>
+    <script>
+      window.onload = function() {
+        alert("🔴 WARNING: You’ve Been Phished!\\nThis was a phishing attempt! If this were a real attack, your personal information could be compromised. Never click on suspicious links in emails. Stay alert and verify before you trust!");
+      };
+    </script>
+</head>
+<body>
+    <div class="warning-message">
+        <strong>🔴 WARNING: You’ve Been Phished!</strong>
+        <p>This was a phishing attempt! If this were a real attack, your personal information could be compromised. Never click on suspicious links in emails. Stay alert and verify before you trust!</p>
+    </div>
+    <img src="images/char2.png" style="position: absolute; bottom: 0; right: 0; z-index: 1000;">
+</body>
+</html>

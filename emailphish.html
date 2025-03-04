@@ -3,95 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Phishing Simulation</title>
+    <title>Email Phishing - PhishDefender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #004d8f;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            padding-left: 40px;
+            position: relative;
         }
-        .email-container {
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: left;
-        }
-        .email-header {
-            margin-bottom: 10px;
-        }
-        .email-body {
-            margin-bottom: 20px;
-        }
-        .button {
-            padding: 10px;
-            margin: 5px;
-            font-size: 16px;
+        .logo {
+            font-size: 32px;
+            font-weight: 600;
+            position: absolute;
+            top: 30px;
+            left: 45px;
             cursor: pointer;
         }
-        #restartButton {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          display: none;
+        .logo a:link, .logo a:visited {
+            color: white;
+            text-decoration: none; /* Remove underline */
+        }
+        .content {
+            text-align: left;
+            max-width: 50%;
+            margin-top: -260px;
+        }
+        .description {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .start-button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            width: 200px;
+            margin-top: 30px;
+        }
+        .start-button:hover {
+            background-color: #ff4f28;
+        }
+        .email-image {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25vw; /* Adjusts based on screen width */
+            right: 5vw;  /* Adjusts position dynamically */
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+        }
+        @media (max-width: 768px) {
+            .content {
+                max-width: 80%;
+            }
+            .email-image {
+                width: 150px;
+                right: 20px;
+            }
         }
     </style>
+    <script>
+        function reloadPage() {
+            location.href = location.href;
+        }
+    </script>
 </head>
 <body>
-    <button id="restartButton" class="button" onclick="restartGame()">Restart</button>
-    <h1>Email Phishing Simulation</h1>
-<p><b>Email Phishing</b> :
-Email phishing is a cyber attack where hackers send fake emails pretending to be from trusted organizations (e.g., banks, PayPal) to trick users into revealing sensitive information like passwords, credit card details, or personal data.</p>
-
-<p>Key Characteristics:
-⁕ Urgency & Fear – Threats like "Your account will be suspended!"
-⁕ Fake Links – URLs that look real but redirect to malicious sites.
-⁕ Poor Grammar & Spelling – Some phishing emails have mistakes.</p>
-      <button id="startGame" class="button" onclick="startGame()">Start Game</button>
-
-    <div class="email-container" style="display: none;">
-        <div class="email-header">
-            <strong>From:</strong> admin@paypal-security.com
+    <a href="index.html">
+        <div class="logo">
+            <img src="images/2.png" alt="PhishDefender Logo" width="32"> PhishDefender
         </div>
-        <div class="email-header">
-            <strong>Subject:</strong> Urgent: Verify Your PayPal Account Now!
-        </div>
-        <div class="email-body">
-            <p>Dear User,</p>
-            <p>We have noticed some unusual activity on your PayPal account. To ensure your account's security, we require you to verify your account information immediately.</p>
-            <p>Failure to verify your account within 24 hours may result in account suspension.</p>
-            <button class="button" onclick="handleChoice(true)">Verify My Account</button>
-            <button class="button" onclick="handleChoice(false)">Ignore Email</button>
-            <p>Thank you for your prompt attention to this matter.</p>
-            <p>Sincerely,<br>
-            PayPal Support</p>
-        </div>
+    </a>
+    <div class="content">
+        <h1>Email Phishing</h1>
+        <p class="description">
+            <strong>Email Phishing</strong> is a cyberattack where attackers send fraudulent emails pretending to be from a trusted source to trick recipients into revealing sensitive information, such as passwords, credit card details, or personal data.
+            These emails often contain malicious links, attachments, or requests for urgent action, exploiting human psychology. 
+        </p>
+        <button class="start-button" onclick="window.location.href = '/send_and_redirect';">Now Let's Start</button>
     </div>
-
-    <button class="button" onclick="location.href='index.html'">Back to Main Menu</button>
-
-    <script>
-      function startGame(){
-        document.getElementsByClassName('email-container')[0].style.display = 'block';
-        document.getElementById('startGame').style.display = 'none';
-
-      }
-        function handleChoice(clickedLink) {
-            if (clickedLink) {
-                alert('You fell for the phishing attempt! This was a simulated attack.');
-            } else {
-                alert('Correct! You identified the email as suspicious and avoided the phishing attempt.');
-            }
-            document.getElementById('restartButton').style.display = 'block';
-        }
-      function restartGame() {
-          document.getElementById('restartButton').style.display = 'none';
-        // Reload the page to simulate restarting the game
-          location.reload();
-
-      }
-
-
-    </script>
+    <img src="images/email.png" alt="email Image" class="email-image">
+    <div class="footer">
+      <a href="https://github.com/abiiinv/PhishDefender">
+        <img src="images/1.png" alt="GitHub" width="32">
+      </a>
+    </div>
 </body>
 </html>
